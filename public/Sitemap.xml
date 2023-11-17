@@ -5,12 +5,6 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <url>
-  <loc>https://kishurit.vercel.app/</loc>
-</url>
-<url>
-  <loc>https://kishurit.vercel.app/about</loc>
-</url>
-<url>
-  <loc>https://kishurit.vercel.app/neworg</loc>
+  <loc>https://romanbr87.github.io/kishurit/</loc>
 </url>
 </urlset>
