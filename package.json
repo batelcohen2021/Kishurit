@@ -1,8 +1,8 @@
 {
-  "homepage": "http://kishurit.vercel.app/",
+  "homepage": "https://gitname.github.io/kishurit",
   "name": "kishurit",
   "version": "0.1.0",
-  "description": "Index of employment websites",
+  "description": "Index of businesses",
   "author": "Roman Braverman",
   "private": true,
   "dependencies": {
@@ -37,6 +37,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "set \"GENERATE_SOURCEMAP=false\" &&  react-scripts build",
     "test": "react-scripts test",
@@ -59,5 +60,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.0.0"
   }
 }
