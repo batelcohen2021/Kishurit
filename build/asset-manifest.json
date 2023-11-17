@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/kishurit/static/css/main.83ed9330.css",
+    "main.js": "/kishurit/static/js/main.7e9aaf8a.js",
+    "static/js/27.5177a8a8.chunk.js": "/kishurit/static/js/27.5177a8a8.chunk.js",
+    "index.html": "/kishurit/index.html",
+    "static/media/notification.svg?s3g3t9": "/kishurit/static/media/notification.5d0158671dd860c714c4.svg",
+    "static/media/notification.eot": "/kishurit/static/media/notification.3657084dc0419605a91c.eot",
+    "static/media/notification.woff?s3g3t9": "/kishurit/static/media/notification.c392cd33d9d9de730f9d.woff",
+    "static/media/notification.ttf?s3g3t9": "/kishurit/static/media/notification.c5d9251ea82e42f75381.ttf"
+  },
+  "entrypoints": [
+    "static/css/main.83ed9330.css",
+    "static/js/main.7e9aaf8a.js"
+  ]
+}
