@@ -10,12 +10,12 @@ import {
   Row,
 } from "react-bootstrap";
 import axios from "axios";
-import { Octokit } from "@octokit/rest";
-import { createOrUpdateTextFile } from "@octokit/plugin-create-or-update-text-file";
+// import { Octokit } from "@octokit/rest";
+// import { createOrUpdateTextFile } from "@octokit/plugin-create-or-update-text-file";
 import { isMobile } from "react-device-detect";
 //import "dotenv/config";
-// import { Octokit } from "https://esm.sh/@octokit/rest";
-// import { createOrUpdateTextFile } from "https://esm.sh/@octokit/plugin-create-or-update-text-file";
+import { Octokit } from "https://esm.sh/@octokit/rest";
+import { createOrUpdateTextFile } from "https://esm.sh/@octokit/plugin-create-or-update-text-file";
 
 import NewBusForm from "./Components/NewBusForm";
 import ContactForm from "./Components/ContactForm";
