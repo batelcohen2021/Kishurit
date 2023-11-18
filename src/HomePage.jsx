@@ -24,7 +24,7 @@ import WelcomeJumbotron from "./Components/WelcomeJumbatron";
 import CitySelect from "./Components/CitiesSelect";
 
 export default function HomePage(props) {
-  const busCss = `text-center bg-light rounded ${isMobile ? "p-2" : "p-4"}`;
+  //const busCss = `text-center bg-light rounded ${isMobile ? "p-2" : "p-4"}`;
   //const url = `https://docs.google.com/spreadsheets/d/e/2PACX-1vSOMBWH8riSN_sATvwimeLBxgIL4JbV6qPg9QOJIkuzyZ5zmUFb0Pd7qHmI0TIiS5SgVW5hW13MHDv6/pub?output=csv`;
   const url1 =
     "https://raw.githubusercontent.com/romanbr87/romanbr87/main/avoda.json";
@@ -42,7 +42,7 @@ export default function HomePage(props) {
 
   const MyOctokit = Octokit.plugin(createOrUpdateTextFile);
   const octokit = new MyOctokit({
-    auth: "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",
+    auth: import.meta.env.GOOOGLE_TOKEN,
   });
 
   const handleFormData = (e, ourFormData) => {
@@ -89,8 +89,7 @@ export default function HomePage(props) {
     console.clear();
     e.preventDefault();
     delete info.blockList;
-    let apiKey =
-      "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";
+    let apiKey = import.meta.env.EMAIL_AUTH
     let apiUrl = "https://api.brevo.com/v3/smtp/email";
 
     const tel =

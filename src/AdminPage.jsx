@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Button, Card, Col, Container, Modal, Row } from "react-bootstrap";
 import axios from "axios";
 import { isMobile } from "react-device-detect";
-import { Octokit } from '@octokit/rest';
+import { Octokit } from "@octokit/rest";
 import { createOrUpdateTextFile } from "@octokit/plugin-create-or-update-text-file";
 
 import BusEditBlock from "./Components/BusEditBlock";
@@ -22,7 +22,7 @@ export default function AdminPage(props) {
   const MyOctokit = Octokit.plugin(createOrUpdateTextFile);
   const octokit = new MyOctokit({
     //auth: "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",
-    auth: "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"
+    auth: import.meta.env.GOOOGLE_TOKEN,
   });
 
   function divideArrayBySetsOfN(array, n = 3) {
@@ -106,7 +106,7 @@ export default function AdminPage(props) {
     <>
       <ButtonEditMenu update1={(e) => update(data1, "avoda.json")} />
       <Container className={`mt-5 ${isMobile ? "pt-5" : "pt-2"}`}>
-      {/* <linearGradient
+        {/* <linearGradient
       colors={['#000000', '#ffffff']}
     />
       <radialGradient
