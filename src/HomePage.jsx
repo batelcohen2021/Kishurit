@@ -10,9 +10,10 @@ import {
   Row,
 } from "react-bootstrap";
 import axios from "axios";
-import { Octokit } from '@octokit/rest';
+import { Octokit } from "@octokit/rest";
 import { createOrUpdateTextFile } from "@octokit/plugin-create-or-update-text-file";
 import { isMobile } from "react-device-detect";
+//import "dotenv/config";
 // import { Octokit } from "https://esm.sh/@octokit/rest";
 // import { createOrUpdateTextFile } from "https://esm.sh/@octokit/plugin-create-or-update-text-file";
 
@@ -89,7 +90,7 @@ export default function HomePage(props) {
     console.clear();
     e.preventDefault();
     delete info.blockList;
-    let apiKey = import.meta.env.EMAIL_AUTH
+    let apiKey = import.meta.env.EMAIL_AUTH;
     let apiUrl = "https://api.brevo.com/v3/smtp/email";
 
     const tel =
@@ -138,7 +139,9 @@ export default function HomePage(props) {
   };
 
   useEffect(() => {
+    console.clear();
     fetchUrl();
+    console.log(import.meta.env);
   }, [fetchUrl]);
 
   return (
