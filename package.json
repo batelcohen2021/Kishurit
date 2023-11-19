@@ -1,8 +1,7 @@
 {
-  "homepage": "https://gitname.github.io/kishurit",
   "name": "kishurit",
   "version": "0.1.0",
-  "description": "Index of businesses",
+  "description": "Index of businesses website",
   "author": "Roman Braverman",
   "private": true,
   "type": "module",
