@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Typeahead } from "react-bootstrap-typeahead";
 import useCities from "../hooks/useCities";
