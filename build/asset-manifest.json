@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/romanbr87/kishurit/static/css/main.f1c51ae1.css",
+    "main.js": "/romanbr87/kishurit/static/js/main.ea500bfa.js",
+    "static/js/27.5177a8a8.chunk.js": "/romanbr87/kishurit/static/js/27.5177a8a8.chunk.js",
+    "index.html": "/romanbr87/kishurit/index.html",
+    "static/media/notification.svg?s3g3t9": "/romanbr87/kishurit/static/media/notification.5d0158671dd860c714c4.svg",
+    "static/media/notification.eot": "/romanbr87/kishurit/static/media/notification.3657084dc0419605a91c.eot",
+    "static/media/notification.woff?s3g3t9": "/romanbr87/kishurit/static/media/notification.c392cd33d9d9de730f9d.woff",
+    "static/media/notification.ttf?s3g3t9": "/romanbr87/kishurit/static/media/notification.c5d9251ea82e42f75381.ttf"
+  },
+  "entrypoints": [
+    "static/css/main.f1c51ae1.css",
+    "static/js/main.ea500bfa.js"
+  ]
+}

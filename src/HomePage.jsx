@@ -40,7 +40,7 @@ export default function HomePage(props) {
 
   const MyOctokit = Octokit.plugin(createOrUpdateTextFile);
   const octokit = new MyOctokit({
-    auth: import.meta.env.REACT_APP_VERCEL_GOOOGLE_TOKEN,
+    auth: process.env.REACT_APP_VERCEL_GOOOGLE_TOKEN,
   });
 
   const handleFormData = (e, ourFormData) => {
@@ -85,7 +85,7 @@ export default function HomePage(props) {
   const sendEmail = async (e, info) => {
     console.clear();
     e.preventDefault();
-    let apiKey = import.meta.env.REACT_APP_VERCEL_GOOOGLE_TOKEN;
+    let apiKey = process.env.REACT_APP_VERCEL_GOOOGLE_TOKEN;
     let apiURL = "https://api.brevo.com/v3/smtp/email";
     //let apiURL = "https://api.sendinblue.com/v3/smtp/email";
 
@@ -139,6 +139,8 @@ export default function HomePage(props) {
   useEffect(() => {
     console.clear();
     fetchUrl();
+    // console.log(import.meta.env);
+    // console.log(process.env);
   }, [fetchUrl]);
 
   return (
