@@ -139,8 +139,8 @@ export default function HomePage(props) {
   useEffect(() => {
     console.clear();
     fetchUrl();
-    // console.log(import.meta.env);
-    // console.log(process.env);
+    console.log(import.meta.env);
+    console.log(process.env);
   }, [fetchUrl]);
 
   return (

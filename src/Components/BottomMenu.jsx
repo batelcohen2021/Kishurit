@@ -3,7 +3,7 @@ import { Row, Nav, Container, Navbar } from "react-bootstrap";
 import useOnline from "../hooks/useOnline";
 import { CiWifiOn, CiWifiOff } from "react-icons/ci";
 
-const ButtomMenu = () => {
+const BottomMenu = () => {
   const [time, setTime] = useState(new Date());
   const { isOnline } = useOnline();
 
@@ -41,4 +41,4 @@ const ButtomMenu = () => {
   );
 };
 
-export default ButtomMenu;
+export default BottomMenu;
