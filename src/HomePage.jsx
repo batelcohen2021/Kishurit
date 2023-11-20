@@ -10,11 +10,7 @@ import {
   Row,
 } from "react-bootstrap";
 import axios from "axios";
-import { Octokit } from "@octokit/rest";
-import { createOrUpdateTextFile } from "@octokit/plugin-create-or-update-text-file";
 import { isMobile } from "react-device-detect";
-// import { Octokit } from "https://esm.sh/@octokit/rest";
-// import { createOrUpdateTextFile } from "https://esm.sh/@octokit/plugin-create-or-update-text-file";
 
 import NewBusForm from "./Components/NewBusForm";
 import ContactForm from "./Components/ContactForm";
@@ -22,12 +18,10 @@ import BusBlock from "./Components/BusBlock";
 import ButtonMenu from "./Components/ButtonMenu";
 import WelcomeJumbotron from "./Components/WelcomeJumbatron";
 import CitySelect from "./Components/CitiesSelect";
+import { dbURL, sendEmail, updateDB } from "./funcs";
 
 export default function HomePage(props) {
   const busCss = `text-center bg-light rounded ${isMobile ? "p-2" : "p-4"}`;
-  //const url = `https://docs.google.com/spreadsheets/d/e/2PACX-1vSOMBWH8riSN_sATvwimeLBxgIL4JbV6qPg9QOJIkuzyZ5zmUFb0Pd7qHmI0TIiS5SgVW5hW13MHDv6/pub?output=csv`;
-  const url1 =
-    "https://raw.githubusercontent.com/romanbr87/romanbr87/main/avoda.json";
   const [fetchedData, setFetchedData] = useState();
   const [searchData, setSearchData] = useState();
   const [show1, setShow1] = useState(false);
@@ -38,10 +32,6 @@ export default function HomePage(props) {
   const [city, setCity] = useState();
   const [searchText, setSearchText] = useState("");
 
-  const MyOctokit = Octokit.plugin(createOrUpdateTextFile);
-  const octokit = new MyOctokit({
-    auth: process.env.REACT_APP_VERCEL_GOOOGLE_TOKEN,
-  });
 
   const handleFormData = (e, ourFormData) => {
     e.preventDefault();
@@ -49,28 +39,16 @@ export default function HomePage(props) {
     console.log(ourFormData);
     var newData = { ...fetchedData };
     newData.list.push(ourFormData);
-    update(newData);
+    updateDB(newData);
     setFetchedData((info) => {
       return newData;
     });
   };
 
-  const update = async (info) => {
-    info.active = false;
-    info = JSON.stringify({ obj: info }, null, 2);
-    console.log(info);
-    const { updated } = await octokit.createOrUpdateTextFile({
-      owner: "romanbr87",
-      repo: "romanbr87",
-      path: "avoda.json",
-      content: info,
-      message: "updated file",
-    });
-  };
 
   const fetchUrl = useCallback(() => {
     axios
-      .get(url1, { mode: "cors" })
+      .get(dbURL, { mode: "cors" })
       .then((json) => {
         var arr = { ...json?.data?.obj };
         arr.list = arr.list.sort((a, b) => a.name.localeCompare(b.name));
@@ -82,35 +60,8 @@ export default function HomePage(props) {
       .catch((err) => console.log(err));
   }, []);
 
-  const sendEmail = async (e, info) => {
-    console.clear();
-    e.preventDefault();
-    let apiKey = process.env.REACT_APP_VERCEL_GOOOGLE_TOKEN;
-    let apiURL = "https://api.brevo.com/v3/smtp/email";
-    //let apiURL = "https://api.sendinblue.com/v3/smtp/email";
-
-    const tel =
-      info?.phone && `tel: <a href=\"tel:${info.phone}\">${info.phone}</a> \n`;
-    //info?.phone && 'tel: <a href="tel:' + info.phone + '">' + "</a> \n";
-
-    let msg = {
-      sender: { name: info.name, email: info?.email || "avoda@wall.com" },
-      to: [{ email: "drushimgalil@gmail.com", name: "Avoda" }],
-      subject: info?.title || "Messame",
-      textContent: tel + info.comment,
-    };
-
-    try {
-      await axios.post(apiURL, msg, {
-        headers: {
-          "api-key": apiKey,
-          "Content-Type": "application/json",
-        },
-      });
-    } catch (err) {
-      console.log("Can't send message");
-    }
-    console.log(msg);
+  const sendEmail1 = async (e, info) => {
+    await sendEmail (e, info);
     setShow2(false);
   };
 
@@ -137,10 +88,7 @@ export default function HomePage(props) {
   };
 
   useEffect(() => {
-    console.clear();
     fetchUrl();
-    console.log(import.meta.env);
-    console.log(process.env);
   }, [fetchUrl]);
 
   return (
@@ -213,7 +161,7 @@ export default function HomePage(props) {
             <Modal.Title>שליחת הודעה למערכת</Modal.Title>
           </Modal.Header>
           <Modal.Body className="p-2">
-            <ContactForm handleFormData={sendEmail} />
+            <ContactForm handleFormData={sendEmail1} />
           </Modal.Body>
         </Modal>
       </Container>

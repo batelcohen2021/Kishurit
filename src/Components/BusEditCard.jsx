@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Button, ButtonToolbar, Card, Form, InputGroup } from "react-bootstrap";
+import {
+  Button,
+  ButtonToolbar,
+  Card,
+  Col,
+  Form,
+  InputGroup,
+} from "react-bootstrap";
 import { Typeahead } from "react-bootstrap-typeahead";
 import CitiesSelect from "./CitiesSelect";
 
@@ -35,20 +42,26 @@ const BusEditCard = ({ info, idx, setData, deleteItem }) => {
   return (
     <Card bg="light">
       <Card.Body>
-        <Card.Title
-          className="d-flex"
-          style={{
-            fontWeight: "bold",
-            textDecoration: "underline",
-          }}
-        >
-          {formData.title}
-
-          <div className="text-right">
-            <small>{idx}</small>
-          </div>
+        <Card.Title className="text-center">
+          <span
+            style={{
+              fontWeight: "bold",
+              textDecoration: "underline",
+            }}
+          >
+            {formData.title}
+          </span>
+          <span
+            className="text-right"
+            style={{
+              fontWeight: "bold",
+              textDecoration: "underline",
+              float: "right",
+            }}
+          >
+            {idx}
+          </span>
         </Card.Title>
-        
         <Form onSubmit={handleSubmit}>
           <Label className="astrix">=ערך שחובה להכניס</Label>
           <Form.Group controlId="formTitle" className="mb-1">

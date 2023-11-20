@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import CitiesSelect from "./CitiesSelect";
+import { Typeahead } from "react-bootstrap-typeahead";
 
 function NewBusForm({ handleFormData }) {
   const [formData, setFormData] = useState({
@@ -18,6 +19,7 @@ function NewBusForm({ handleFormData }) {
     tel2: "",
     whatsapp: "",
     website1: "",
+    tags: [],
     comment: "",
     active: false,
   });
@@ -164,6 +166,29 @@ function NewBusForm({ handleFormData }) {
           className="leftDirection"
         />
       </Form.Group>
+
+      <Form.Group controlId="formTags" className="mt-1 mb-2">
+            <Label>תגיות</Label>
+            <Typeahead
+              defaultSelected={formData.tags}
+              id="tags"
+              name="tags"
+              labelKey="tags"
+              multiple
+              options={formData.tags}
+              placeholder="תוסיף תגיות"
+              onChange={(values) => setFormData({ ...formData, tags: values })}
+              onKeyDown={(e) => {
+                console.log (e.target.value);
+                if (e.keyCode === 13)
+                  setFormData({
+                    ...formData,
+                    tags: [...formData?.tags, e.target.value],
+                  });
+              }}
+            />
+          </Form.Group>
+
 
       <Form.Group controlId="formComment" className="mt-1 mb-2">
         <Label>הערות</Label>
