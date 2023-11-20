@@ -4,17 +4,17 @@ import Button from "react-bootstrap/Button";
 
 function NewBusForm({ handleFormData }) {
   const [formData, setFormData] = useState({
-    // title: '',
-    // name: '',
-    // phone: '',
-    // email: '',
-    // comment: '',
+    title: '',
+    name: '',
+    phone: '',
+    email: '',
+    comment: '',
 
-    title: 'לשנות בבקשה את הדף שלי',
-    name: 'מני',
-    phone: '0507113699',
-    email: 'romanbr87@gmail.com',
-    comment: 'sdfsdasdasdasd',
+    // title: 'לשנות בבקשה את הדף שלי',
+    // name: 'מני',
+    // phone: '0507113699',
+    // email: 'romanbr87@gmail.com',
+    // comment: 'sdfsdasdasdasd',
   });
 
   const handleChange = (e) => {
