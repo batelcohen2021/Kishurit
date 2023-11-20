@@ -8,7 +8,6 @@ import ButtonEditMenu from "./Components/ButtonEditMenu";
 import { dbURL } from "./funcs";
 
 export default function AdminPage(props) {
-  // const busCss = `text-center bg-light rounded ${isMobile ? 'p-2' : 'p-4'}`
 
   const [data, setData] = useState();
 
@@ -66,7 +65,7 @@ export default function AdminPage(props) {
       list: updatedList,
     });
   };
-  const setOldData = (data, idx) => {
+  const setNewData = (data, idx) => {
     setData((prev) => {
       var currList = [...prev?.list];
       currList[idx] = data;
@@ -95,7 +94,7 @@ export default function AdminPage(props) {
         <Title className={`${isMobile ? "mb-3" : "mb-2"}`}>עסקים לעריכה</Title>
         <BusEditBlock
           data={data}
-          setData={setOldData}
+          setData={setNewData}
           deleteItem={deleteItem}
         />
       </Container>

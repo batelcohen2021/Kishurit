@@ -18,7 +18,7 @@ import BusBlock from "./Components/BusBlock";
 import ButtonMenu from "./Components/ButtonMenu";
 import WelcomeJumbotron from "./Components/WelcomeJumbatron";
 import CitySelect from "./Components/CitiesSelect";
-import { dbURL, sendEmail, updateDB } from "./funcs";
+import updateDB, { dbURL, sendEmail } from "./funcs";
 
 export default function HomePage(props) {
   const busCss = `text-center bg-light rounded ${isMobile ? "p-2" : "p-4"}`;
@@ -39,7 +39,7 @@ export default function HomePage(props) {
     console.log(ourFormData);
     var newData = { ...fetchedData };
     newData.list.push(ourFormData);
-    updateDB(newData);
+    updateDB (newData);
     setFetchedData((info) => {
       return newData;
     });

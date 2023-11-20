@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Nav, Container, Navbar } from "react-bootstrap";
-import { updateDB } from "../funcs";
+
+import updateDB from "../funcs";
 
 const ButtonEditMenu = ({ info }) => {
   return (

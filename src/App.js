@@ -18,8 +18,8 @@ export default function App(props) {
   return (
     <>
       <div className='pb-3'>
-        <AdminPage />
-        {/* <HomePage /> */}
+        {/* <AdminPage /> */}
+        <HomePage />
       </div>
       <ButtomMenu />
     </>
