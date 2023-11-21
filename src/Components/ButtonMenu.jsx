@@ -19,9 +19,15 @@ const ButtonMenu = ({ setShow1, setShow2 }) => {
               </Nav.Item>
             </Nav>
           ) : (
-            <Nav>
-              <Nav.Item onClick={() => setShow1(true)}>טופס להגשת עסק</Nav.Item>
-              <Nav.Item onClick={() => setShow2(true)}>לשלוח הודעה</Nav.Item>
+            <Nav className="d-flex">
+              <Nav.Item>
+                <Nav.Link onClick={() => setShow1(true)}>
+                  טופס להגשת עסק
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link onClick={() => setShow2(true)}>לשלוח הודעה</Nav.Link>
+              </Nav.Item>
             </Nav>
           )}
         </Row>
