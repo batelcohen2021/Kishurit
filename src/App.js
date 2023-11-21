@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Nav, Navbar, Row } from 'react-bootstrap';
-
-
-import AdminPage from './AdminPage';
-import ButtomMenu from './Components/BottomMenu';
-import HomePage from "./HomePage"
+import ButtomMenu from './GlobalComponents/BottomMenu';
+import HomePage from './HomeComponents/HomePage';
+import AdminPage from './AdminComponents/AdminPage';
 
 export default function App(props) {
 
   useEffect(() => {
     console.clear();
-    console.log(import.meta.env);
-    console.log(process.env);
+    // console.log(import.meta.env);
+    // console.log(process.env);
   }, []);
 
 

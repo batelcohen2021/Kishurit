@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { GoogleAnalyticsProvider } from 'react-ga4-gtag';
 
 import './App.css'
 import "./style/well.css"
@@ -14,7 +15,9 @@ import 'react-bootstrap-typeahead/css/Typeahead.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <GoogleAnalyticsProvider measurementId={process.env.REACT_APP_GOOGLE_ANALYTICS_ID}>
+      <App />
+    </GoogleAnalyticsProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

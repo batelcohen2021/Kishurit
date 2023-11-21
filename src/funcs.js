@@ -7,15 +7,14 @@ import { createOrUpdateTextFile } from "@octokit/plugin-create-or-update-text-fi
 
 const MyOctokit = Octokit.plugin(createOrUpdateTextFile);
 const octokit = new MyOctokit({
-  auth: process.env.REACT_APP_GOOOGLE_TOKEN,
+  auth: process.env.REACT_APP_GOOGLE_TOKEN,
 });
 
 export const dbURL = process.env.REACT_APP_URL;
 
 export default async function updateDB (info) {
-  info.active = false;
-  info = JSON.stringify({ obj: info }, null, 2);
   console.log(info);
+  info = JSON.stringify({ obj: info }, null, 2);
   const { updated } = await octokit.createOrUpdateTextFile({
     owner: process.env.REACT_APP_USER,
     repo: process.env.REACT_APP_REPO,
